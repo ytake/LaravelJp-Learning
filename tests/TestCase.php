@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class TestCase
+ * for applicationTest
+ */
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**

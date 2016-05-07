@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Learning\Providers;
 
 use Collective\Annotations\AnnotationsServiceProvider as ServiceProvider;
 

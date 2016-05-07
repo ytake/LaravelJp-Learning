@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Jobs;
+namespace Learning\Jobs;
 
 use Illuminate\Bus\Queueable;
 
+/**
+ * Class Job
+ */
 abstract class Job
 {
     /*

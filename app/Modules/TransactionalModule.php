@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules;
+namespace Learning\Modules;
 
 use Ytake\LaravelAspect\Modules\TransactionalModule as PackageTransactionalModule;
 
@@ -12,6 +12,6 @@ class TransactionalModule extends PackageTransactionalModule
     /** @var array */
     protected $classes = [
         // example
-        // \App\Services\AcmeService::class
+        // \Learning\Services\AcmeService::class
     ];
 }

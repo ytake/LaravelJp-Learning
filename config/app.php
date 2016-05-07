@@ -151,11 +151,13 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\AnnotationServiceProvider::class,
+        Learning\Providers\AppServiceProvider::class,
+        Learning\Providers\AuthServiceProvider::class,
+        Learning\Providers\EventServiceProvider::class,
+        Learning\Providers\AnnotationServiceProvider::class,
 
+
+        Learning\Domain\DocumentReader\Provider\DocumentReaderServiceProvider::class,
         /**
          * packages Service Providers
          */

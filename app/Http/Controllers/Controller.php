@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Learning\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 
@@ -9,5 +9,5 @@ use Illuminate\Routing\Controller as BaseController;
  */
 class Controller extends BaseController
 {
-
+    //
 }

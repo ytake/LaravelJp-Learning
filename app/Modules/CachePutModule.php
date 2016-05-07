@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules;
+namespace Learning\Modules;
 
 use Ytake\LaravelAspect\Modules\CachePutModule as PackageCachePutModule;
 
@@ -12,6 +12,6 @@ class CachePutModule extends PackageCachePutModule
     /** @var array */
     protected $classes = [
         // example
-        // \App\Services\AcmeService::class
+        // \Learning\Services\AcmeService::class
     ];
 }
