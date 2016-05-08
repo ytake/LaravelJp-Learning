@@ -38,7 +38,7 @@ class ReaderRepository implements ReaderRepositoryInterface
 
     /**
      * @Cacheable(
-     *     cacheName="learning.content",
+     *     cacheName="learning",
      *     key="#content",
      *     lifetime=600
      * )
@@ -49,5 +49,22 @@ class ReaderRepository implements ReaderRepositoryInterface
     public function findDirectory($content)
     {
         return $this->filesystem->allFiles($this->config['directory'] . '/' . $this->config['level'][$content]);
+    }
+
+    /**
+     * @Cacheable(
+     *     cacheName="learning.find.content",
+     *     key="#pathname",
+     *     lifetime=600
+     * )
+     * @param string $content
+     * @param string $pathname
+     *
+     * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
+    public function findContent($content, $pathname)
+    {
+        return $this->filesystem->get($this->config['directory'] . '/' . $this->config['level'][$content] . '/' .  $pathname);
     }
 }

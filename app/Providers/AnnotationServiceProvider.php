@@ -14,6 +14,7 @@ class AnnotationServiceProvider extends ServiceProvider
 
     /** @var string[] */
     protected $scanRoutes = [
-        // 
+        'Learning\Http\Controllers\IndexController',
+        'Learning\Http\Controllers\LearningController',
     ];
 }

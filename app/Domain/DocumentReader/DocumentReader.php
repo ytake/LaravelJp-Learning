@@ -25,8 +25,29 @@ class DocumentReader
     /**
      * @return \string[]
      */
-    public function scan()
+    public function scan() : array
     {
         return $this->readerRepositoryInterface->scanDirectories();
+    }
+
+    /**
+     * @param string $target  for content target
+     *
+     * @return \Symfony\Component\Finder\SplFileInfo[]
+     */
+    public function findDocuments($target)
+    {
+        return $this->readerRepositoryInterface->findDirectory($target);
+    }
+
+    /**
+     * @param string $target
+     * @param string $pathname
+     *
+     * @return mixed
+     */
+    public function content($target, $pathname)
+    {
+        return $this->readerRepositoryInterface->findContent($target, $pathname);
     }
 }

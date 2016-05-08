@@ -155,7 +155,7 @@ return [
         Learning\Providers\AuthServiceProvider::class,
         Learning\Providers\EventServiceProvider::class,
         Learning\Providers\AnnotationServiceProvider::class,
-
+        Learning\Providers\ConsoleServiceProvider::class,
 
         Learning\Domain\DocumentReader\Provider\DocumentReaderServiceProvider::class,
         /**
