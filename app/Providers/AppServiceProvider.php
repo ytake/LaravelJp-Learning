@@ -1,49 +1,30 @@
 <?php
+declare(strict_types=1);
 
 namespace Learning\Providers;
 
-use Learning\Modules\CacheableModule;
-use ParsedownExtra;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Learning\DataAccess\Content;
+use LearningDomain\Specification\ActiveContentSpecification;
 
 /**
  * Class AppServiceProvider
  */
-class AppServiceProvider extends ServiceProvider
+final class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     */
-    public function boot()
-    {
-        if ($this->app->routesAreCached()) {
-            $this->loadCachedRoutes();
-        }
-        /** @var \Ytake\LaravelAspect\AspectManager $aspect */
-        $aspect = $this->app['aspect.manager'];
-        $aspect->register(CacheableModule::class);
-        $aspect->dispatch();
-    }
-
-    /**
-     * Register any application services.
+     *
      */
     public function register()
     {
-        $this->app->singleton(ParsedownExtra::class, function () {
-            return new ParsedownExtra;
-        });
-    }
+        $this->app->resolving(ActiveContentSpecification::class,
+            function (ActiveContentSpecification $specification, Application $application) {
+                $contentConfigure = $application['config']->get('contents');
+                $specification->criteria(new Content(new Filesystem, $contentConfigure));
 
-    /**
-     * Load the cached routes for the application.
-     *
-     * @return void
-     */
-    protected function loadCachedRoutes()
-    {
-        $this->app->booted(function () {
-            require_once $this->app->getCachedRoutesPath();
-        });
+                return $specification;
+            });
     }
 }

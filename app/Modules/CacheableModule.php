@@ -11,6 +11,6 @@ class CacheableModule extends PackageCacheableModule
 {
     /** @var array */
     protected $classes = [
-        'Learning\Services\ContentCreateService',
+
     ];
 }

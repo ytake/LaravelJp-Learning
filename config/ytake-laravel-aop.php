@@ -12,7 +12,7 @@
  * This software consists of voluntary contributions made by many individuals
  * and is licensed under the MIT license.
  *
- * Copyright (c) 2015-2016 Yuuki Takezawa
+ * Copyright (c) 2015-2017 Yuuki Takezawa
  *
  */
 return [
@@ -41,23 +41,12 @@ return [
                 // no use aspect
             ]
         ],
+        'modules' => [
+            Learning\Modules\LoggableModule::class,
+        ],
     ],
 
     'annotation' => [
-        /**
-         * choose annotation reader
-         * 'array'(default), 'file'(file cache)
-         */
-        'default' => env('ASPECT_ANNOTATION_DRIVER', 'array'),
-
-        'drivers' => [
-            'file' => [
-                'cache_dir' => storage_path('framework/annotation'),
-                //
-                'debug' => env('ASPECT_ANNOTATION_DEBUG', false),
-            ],
-        ],
-
         'ignores' => [
             // global Ignored Annotations
             'Hears',
