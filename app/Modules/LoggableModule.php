@@ -11,7 +11,6 @@ class LoggableModule extends PackageLoggableModule
 {
     /** @var array */
     protected $classes = [
-        // example
-        // \Learning\Services\AcmeService::class
+
     ];
 }

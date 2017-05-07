@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../')
+    realpath(__DIR__ . '/../')
 );
 
 /*
@@ -31,11 +31,12 @@ $app->singleton(
     Learning\Http\Kernel::class
 );
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    Learning\Console\Kernel::class
-);
-
+if ($app->runningInConsole()) {
+    $app->singleton(
+        Illuminate\Contracts\Console\Kernel::class,
+        Learning\Console\Kernel::class
+    );
+}
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Learning\Exceptions\Handler::class

@@ -4,6 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+    'name' => env('APP_NAME', 'Laravel'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -110,6 +122,8 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -138,11 +152,12 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        // Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -152,16 +167,7 @@ return [
          * Application Service Providers...
          */
         Learning\Providers\AppServiceProvider::class,
-        Learning\Providers\AuthServiceProvider::class,
-        Learning\Providers\EventServiceProvider::class,
-        Learning\Providers\AnnotationServiceProvider::class,
-
-
-        Learning\Domain\DocumentReader\Provider\DocumentReaderServiceProvider::class,
-        /**
-         * packages Service Providers
-         */
-        Ytake\LaravelFluent\LogServiceProvider::class,
+        Learning\Providers\RouteServiceProvider::class,
         Ytake\LaravelAspect\AspectServiceProvider::class,
         Ytake\LaravelAspect\ConsoleServiceProvider::class,
     ],
@@ -178,7 +184,7 @@ return [
     */
 
     'aliases' => [
-        // not use laravel's facade
+
     ],
 
 ];

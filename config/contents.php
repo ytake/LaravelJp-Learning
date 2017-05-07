@@ -11,7 +11,7 @@ return [
 
     'default' => 'intro',
 
-    'extension' => '.md',
+    'extension' => 'md',
 
     'standard' => 'guide',
 ];

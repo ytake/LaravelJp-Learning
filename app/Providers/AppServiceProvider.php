@@ -1,26 +1,30 @@
 <?php
+declare(strict_types=1);
 
 namespace Learning\Providers;
 
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Learning\DataAccess\Content;
+use LearningDomain\Specification\ActiveContentSpecification;
 
-class AppServiceProvider extends ServiceProvider
+/**
+ * Class AppServiceProvider
+ */
+final class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     *
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
      *
      */
     public function register()
     {
-        //
+        $this->app->resolving(ActiveContentSpecification::class,
+            function (ActiveContentSpecification $specification, Application $application) {
+                $contentConfigure = $application['config']->get('contents');
+                $specification->criteria(new Content(new Filesystem, $contentConfigure));
+
+                return $specification;
+            });
     }
 }
