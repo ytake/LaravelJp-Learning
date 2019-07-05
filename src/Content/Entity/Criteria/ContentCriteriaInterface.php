@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Entity\Criteria;
+namespace LearningDomain\Content\Entity\Criteria;
 
 use PHPMentors\DomainKata\Entity\CriteriaInterface;
 
 /**
  * Class ContentCriteria
  */
-abstract class ContentCriteria implements CriteriaInterface
+interface ContentCriteriaInterface extends CriteriaInterface
 {
     /**
      * @param string $content
@@ -16,5 +16,8 @@ abstract class ContentCriteria implements CriteriaInterface
      *
      * @return string
      */
-    abstract public function retrieve(string $content, string $pathname): string;
+    public function retrieve(
+        string $content,
+        string $pathname
+    ): string;
 }

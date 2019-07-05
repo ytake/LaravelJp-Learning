@@ -1,25 +1,28 @@
 {
   "private": true,
   "devDependencies": {
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-react-jsx": "^6.22.0",
-    "css-loader": "^0.26.1",
-    "file-loader": "^0.10.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.0",
-    "scss-loader": "0.0.1",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^2.0.0"
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "scss-loader": "^0.0.1",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
   },
   "dependencies": {
-    "axios": "^0.15.0",
-    "bootstrap": "^3.3.7",
-    "bulma": "^0.3.1",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "bulma": "^0.7.5",
     "font-awesome": "*",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "scripts": {
     "webpack": "webpack --config webpack.config.js"

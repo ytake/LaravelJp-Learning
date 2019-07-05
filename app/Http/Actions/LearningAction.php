@@ -6,30 +6,34 @@ namespace Learning\Http\Actions;
 use Illuminate\Routing\Controller;
 use Illuminate\Contracts\View\View;
 use Learning\Http\Responders\LearningResponder;
-use LearningDomain\Usecase\ReadLearningContentUsecase;
-use LearningDomain\Specification\ActiveContentSpecification;
+use LearningDomain\Content\Usecase\ReadLearningContentUsecase;
+use LearningDomain\Content\Specification\ActiveContentSpecification;
 
 /**
  * Class LearningAction
  */
-class LearningAction extends Controller
+final class LearningAction extends Controller
 {
+    /** @var LearningResponder */
+    private $responder;
+
     /** @var ActiveContentSpecification */
-    protected $specification;
+    private $specification;
 
     /** @var ReadLearningContentUsecase */
-    protected $usecase;
+    private $usecase;
 
     /**
-     * LearningAction constructor.
-     *
+     * @param LearningResponder          $responder
      * @param ActiveContentSpecification $specification
      * @param ReadLearningContentUsecase $usecase
      */
     public function __construct(
+        LearningResponder $responder,
         ActiveContentSpecification $specification,
         ReadLearningContentUsecase $usecase
     ) {
+        $this->responder = $responder;
         $this->specification = $specification;
         $this->usecase = $usecase;
     }
@@ -37,14 +41,18 @@ class LearningAction extends Controller
     /**
      * @param string            $target
      * @param string            $content
-     * @param LearningResponder $responder
      *
      * @return View
      */
-    public function __invoke(string $target, string $content = 'intro', LearningResponder $responder): View
-    {
-        $this->specification->contentSpecification($target, $content);
-
-        return $responder->emit($this->usecase->run($this->specification));
+    public function __invoke(
+        string $target,
+        string $content = 'intro'
+    ): View {
+        return $this->responder->emit(
+            $this->usecase->run(
+                $this->specification
+                    ->contentSpecification($target, $content)
+            )
+        );
     }
 }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Usecase;
+namespace LearningDomain\Content\Usecase;
 
 use LearningDomain\Repository\ContentRepository;
 use PHPMentors\DomainKata\Entity\EntityInterface;

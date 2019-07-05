@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Entity;
+namespace LearningDomain\Content\Entity;
 
 use PHPMentors\DomainKata\Entity\EntityInterface;
 
@@ -22,8 +22,10 @@ class Content implements EntityInterface
      * @param string $path
      * @param string $content
      */
-    public function __construct(string $path, string $content)
-    {
+    public function __construct(
+        string $path,
+        string $content
+    ) {
         $this->path = $path;
         $this->content = $content;
     }
@@ -31,7 +33,7 @@ class Content implements EntityInterface
     /**
      * @return string
      */
-    public function path()
+    public function path(): string
     {
         return $this->path;
     }

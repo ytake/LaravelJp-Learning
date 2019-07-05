@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Repository;
+namespace LearningDomain\Content\Repository;
 
 use PHPMentors\DomainKata\Repository\Operation\CriteriaBuilderInterface;
 

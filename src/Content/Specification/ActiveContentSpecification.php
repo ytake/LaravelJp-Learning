@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Specification;
+namespace LearningDomain\Content\Specification;
 
-use LearningDomain\Entity\Content;
-use LearningDomain\Entity\Criteria\ContentCriteria;
-use LearningDomain\Repository\ContentRepository;
+use LearningDomain\Content\Entity\Content;
+use LearningDomain\Content\Entity\Criteria\ContentCriteriaInterface;
+use LearningDomain\Content\Repository\ContentRepository;
 use PHPMentors\DomainKata\Entity\EntityInterface;
 use PHPMentors\DomainKata\Entity\CriteriaInterface;
 use PHPMentors\DomainKata\Specification\SpecificationInterface;
@@ -28,11 +28,16 @@ class ActiveContentSpecification implements SpecificationInterface, CriteriaBuil
     /**
      * @param string $content
      * @param string $pathname
+     *
+     * @return $this
      */
-    public function contentSpecification(string $content, string $pathname)
-    {
+    public function contentSpecification(
+        string $content,
+        string $pathname
+    ): self {
         $this->content = $content;
         $this->pathname = $pathname;
+        return $this;
     }
 
     /**
@@ -58,9 +63,9 @@ class ActiveContentSpecification implements SpecificationInterface, CriteriaBuil
     }
 
     /**
-     * @param ContentCriteria $criteria
+     * @param ContentCriteriaInterface $criteria
      */
-    public function criteria(ContentCriteria $criteria)
+    public function setCriteria(ContentCriteriaInterface $criteria)
     {
         $this->criteria = $criteria;
     }

@@ -6,7 +6,7 @@ namespace Learning\Providers;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Learning\DataAccess\Content;
+use Learning\FileAccess\Content;
 use LearningDomain\Specification\ActiveContentSpecification;
 
 /**
