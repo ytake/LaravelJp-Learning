@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Repository;
+namespace LearningDomain\Content\Repository;
 
-use LearningDomain\Entity\ContentCollection;
-use LearningDomain\Entity\Criteria\ContentCriteria;
-use LearningDomain\Specification\ActiveContentSpecification;
+use LearningDomain\Content\Entity\ContentCollection;
+use LearningDomain\Content\Entity\Criteria\ContentCriteriaInterface;
+use LearningDomain\Content\Specification\ActiveContentSpecification;
 
 /**
  * Class ContentRepository
  */
 class ContentRepository extends AbstractRepository
 {
-    /** @var ContentCriteria */
+    /** @var ContentCriteriaInterface */
     protected $criteria;
 
     /**

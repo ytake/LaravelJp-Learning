@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace LearningDomain\Entity;
+namespace LearningDomain\Content\Entity;
 
 /**
  * Class ContentCollection

@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace Learning\DataAccess;
+namespace Learning\FileAccess;
 
 use Illuminate\Filesystem\Filesystem;
-use LearningDomain\Entity\Criteria\ContentCriteria;
+use LearningDomain\Content\Entity\Criteria\ContentCriteriaInterface;
 
 /**
  * Class Content
  */
-class Content extends ContentCriteria
+class Content implements ContentCriteriaInterface
 {
     /** @var string  */
     protected $extension = '.md';
@@ -37,6 +37,7 @@ class Content extends ContentCriteria
      * @param string $pathname
      *
      * @return string
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function retrieve(string $content, string $pathname): string
     {

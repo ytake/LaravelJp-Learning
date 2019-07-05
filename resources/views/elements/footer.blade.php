@@ -1,3 +1,3 @@
 <footer>
-    <p>&copy; 2016 yuuki takezawa</p>
+    <p>&copy; 2019 yuuki takezawa</p>
 </footer>
